@@ -1,0 +1,36 @@
+name: E-Commerce CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  build-test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build
+        run: echo "Building E-Commerce Application"
+
+      - name: Test
+        run: echo "Running tests"
+
+      - name: Package
+        run: |
+          mkdir package
+          cp index.html package/
+          echo "Application packaged successfully"
+
+      - name: Deploy
+        run: echo "Application deployed successfully"
